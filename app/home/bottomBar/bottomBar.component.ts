@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Output, EventEmitter } from "@angular/core";
-import { AnimationCurve } from "ui/enums";
-import { screen } from "platform";
-import { setTimeout } from "timer";
+import { screen } from "tns-core-modules/platform";
+import { setTimeout } from "tns-core-modules/timer";
+import {AnimationCurve} from "tns-core-modules/ui/enums";
 
 @Component({
 	selector: "BottomBar",

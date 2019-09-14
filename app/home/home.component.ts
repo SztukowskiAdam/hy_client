@@ -1,7 +1,7 @@
 import { ItemEventData } from "ui/list-view"
 import { Component, OnInit } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
-import { ios } from "application";
+import { ios } from "tns-core-modules/application";
 declare var UITableViewCellSelectionStyle;
 
 @Component({
