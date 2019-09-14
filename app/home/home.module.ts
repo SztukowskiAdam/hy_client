@@ -8,6 +8,7 @@ import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 import { NativeScriptUIGaugeModule } from "nativescript-ui-gauge/angular";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
 import { BottomBarModule } from "./bottomBar/bottomBar.module";
@@ -27,6 +28,7 @@ import {ProductsModule} from "~/home/products/products.module";
         NativeScriptUIAutoCompleteTextViewModule,
         NativeScriptUIGaugeModule,
         NativeScriptCommonModule,
+        NativeScriptHttpClientModule,
         HomeRoutingModule,
         NativeScriptFormsModule,
         BottomBarModule,

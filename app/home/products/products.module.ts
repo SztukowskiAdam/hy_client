@@ -8,7 +8,7 @@ import {BottomBarModule} from "~/home/bottomBar/bottomBar.module";
 	imports: [
 		NativeScriptCommonModule,
 		NativeScriptFormsModule,
-        BottomBarModule
+		BottomBarModule,
 	],
 	declarations: [
 		ProductsComponent
