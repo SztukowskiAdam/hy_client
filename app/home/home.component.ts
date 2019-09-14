@@ -1,7 +1,12 @@
 import { ItemEventData } from "ui/list-view"
-import { Component, OnInit } from "@angular/core";
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 import { ios } from "tns-core-modules/application";
+import {SearchComponent} from "~/home/search/search.component";
+import {ScannerComponent} from "~/home/scanner/scanner.component";
+import {RankComponent} from "~/home/rank/rank.component";
+import {ProductsComponent} from "~/home/products/products.component";
+import {AuthComponent} from "~/home/auth/auth.component";
 declare var UITableViewCellSelectionStyle;
 
 @Component({
@@ -10,27 +15,19 @@ declare var UITableViewCellSelectionStyle;
     templateUrl: "./home.component.html",
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-    countries: { name: string, imageSrc: string }[] = [
-        { name: "", imageSrc: "" },
-        { name: "", imageSrc: "" },
-        { name: "", imageSrc: "" },
-        { name: "", imageSrc: "" },
-        { name: "", imageSrc: "" },
-        { name: "", imageSrc: "" },
-        { name: "", imageSrc: "" }
-    ];
 
-    onItemTap(args: ItemEventData): void {
-    }
+export class HomeComponent implements OnInit {
+    @ViewChild('componentContainer', {read: ViewContainerRef, static: true}) componentContainer;
 
     constructor(
-        private page: Page
+        private page: Page,
+        private componentFactoryResolver: ComponentFactoryResolver,
     ) {
         this.page.actionBarHidden = true;
     }
 
     ngOnInit(): void {
+        this.tabSelected(1);
     }
 
     onItemLoading(args: any) {
@@ -41,6 +38,36 @@ export class HomeComponent implements OnInit {
     }
 
     tabSelected(args: number) {
-        console.log("tab selected: " + args);
+        let factory;
+        switch(args) {
+            case 0: {
+                factory = this.componentFactoryResolver.resolveComponentFactory(ScannerComponent);
+                break;
+            }
+            case 1: {
+                factory = this.componentFactoryResolver.resolveComponentFactory(SearchComponent);
+                break;
+            }
+            case 2: {
+                factory = this.componentFactoryResolver.resolveComponentFactory(ProductsComponent);
+                break;
+            }
+            case 3: {
+                factory = this.componentFactoryResolver.resolveComponentFactory(AuthComponent);
+                break;
+            }
+            case 4: {
+                factory = this.componentFactoryResolver.resolveComponentFactory(RankComponent);
+                break;
+            }
+            default: {
+                factory = this.componentFactoryResolver.resolveComponentFactory(ScannerComponent);
+                break;
+            }
+        }
+
+        this.componentContainer.clear();
+        const componentRef = this.componentContainer.createComponent(factory);
+        componentRef.changeDetectorRef.detectChanges();
     }
 }

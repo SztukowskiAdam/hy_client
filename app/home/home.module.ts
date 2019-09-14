@@ -8,13 +8,14 @@ import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 import { NativeScriptUIGaugeModule } from "nativescript-ui-gauge/angular";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
-
 import { BottomBarModule } from "./bottomBar/bottomBar.module";
-import {Page} from "tns-core-modules/ui/page";
-import {NATIVESCRIPT_ANIMATIONS_PROVIDERS} from "nativescript-angular/animations";
+import {SearchModule} from "~/home/search/search.module";
+import {ScannerModule} from "~/home/scanner/scanner.module";
+import {RankModule} from "~/home/rank/rank.module";
+import {AuthModule} from "~/home/auth/auth.module";
+import {ProductsModule} from "~/home/products/products.module";
 
 @NgModule({
     imports: [
@@ -29,6 +30,11 @@ import {NATIVESCRIPT_ANIMATIONS_PROVIDERS} from "nativescript-angular/animations
         HomeRoutingModule,
         NativeScriptFormsModule,
         BottomBarModule,
+        SearchModule,
+        ScannerModule,
+        RankModule,
+        AuthModule,
+        ProductsModule
     ],
     declarations: [
         HomeComponent

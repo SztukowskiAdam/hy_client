@@ -4,31 +4,7 @@
 <GridLayout rows="*, auto" backgroundColor="#26252A">
 	<StackLayout row="0">
 
-		<!-- Header Start -->
-		<Label horizontalAlignment="center" letterSpacing="0.2" paddingTop="35">
-			<FormattedString>
-				<Span color="#fff" fontSize="18" fontWeight="normal" text="BOTTOM MENU"></Span>
-				<Span color="#fff" fontSize="18" fontWeight="bold" text=" DEMO"></Span>
-			</FormattedString>
-		</Label>
-		<!-- Header End -->
-
-		<!-- Main Content Example Start -->
-		<StackLayout margin="25 0 60 0" padding="10 0">
-			<ListView class="list-group" [items]="countries" (itemTap)="onItemTap($event)" (itemLoading)="onItemLoading($event)" backgroundColor="#26252A" opacity="0.6" style="height:100%">
-				<ng-template let-country="item">
-					<FlexboxLayout flexDirection="row" opacity="0.7">
-						<GridLayout rows="*, *, 2*" columns="100, *, 10" backgroundColor="rgba(255,255,255,0.2)" height="100" margin="2.5 15" padding="10 0" borderRadius="10">
-							<StackLayout row="0" rowSpan="3" col="0" backgroundColor="rgba(0,0,0,0.5)" height="80" width="80" verticalAlignment="center" horizontalAlignment="center" borderRadius="5"></StackLayout>
-							<StackLayout row="0" col="1" backgroundColor="rgba(0,0,0,0.5)" height="14" width="20%" verticalAlignment="center" horizontalAlignment="left" borderRadius="5"></StackLayout>
-							<StackLayout row="1" col="1" backgroundColor="rgba(0,0,0,0.5)" height="12" width="40%" verticalAlignment="center" horizontalAlignment="left" borderRadius="5"></StackLayout>
-							<StackLayout row="2" col="1" backgroundColor="rgba(0,0,0,0.5)" height="40" width="100%" verticalAlignment="center" horizontalAlignment="left" borderRadius="5"></StackLayout>
-						</GridLayout>
-					</FlexboxLayout>
-				</ng-template>
-			</ListView>
-		</StackLayout>
-		<!-- Main Content Example End -->
+		<template #componentContainer></template>
 	
 	</StackLayout>
 

@@ -1,7 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Output, EventEmitter } from "@angular/core";
+import {Component, OnInit, AfterViewInit, ViewChild, ElementRef, Output, EventEmitter, Input} from "@angular/core";
 import { screen } from "tns-core-modules/platform";
 import { setTimeout } from "tns-core-modules/timer";
 import {AnimationCurve} from "tns-core-modules/ui/enums";
+import {Router} from "@angular/router";
 
 @Component({
 	selector: "BottomBar",
@@ -11,6 +12,7 @@ import {AnimationCurve} from "tns-core-modules/ui/enums";
 })
 export class BottomBarComponent implements OnInit {
 
+	@Input() row: number;
 	@ViewChild('tabHighlight', { static: false }) tabHighlight: ElementRef;
 	selectedTab: number = 0;
 
@@ -23,7 +25,7 @@ export class BottomBarComponent implements OnInit {
 	@Output() tabSelected = new EventEmitter<number>();
 
 
-	constructor() {
+	constructor(private router: Router) {
 	}
 
 	ngOnInit(): void {
@@ -44,9 +46,11 @@ export class BottomBarComponent implements OnInit {
 			});
 			this.animateCurrentImage(this.getImage(index));
 			this.animatePreviousImage(this.getImage(previousTab));
-			this.tabSelected.emit(this.selectedTab);
+			this.tabSelected.emit(index);
 		}
 	}
+
+
 
 	getImage(index) {
 		let currentImage;

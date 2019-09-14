@@ -1,24 +1,26 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
-import { BottomBarComponent } from "./bottomBar.component";
-import {RouterModule} from "@angular/router";
+import { RankComponent } from "./rank.component";
+import {BottomBarModule} from "~/home/bottomBar/bottomBar.module";
 
 @NgModule({
 	imports: [
 		NativeScriptCommonModule,
 		NativeScriptFormsModule,
-		RouterModule
+        BottomBarModule
 	],
 	declarations: [
-		BottomBarComponent
+		RankComponent
 	],
 	exports: [
-		BottomBarComponent
+		RankComponent
 	],
 	schemas: [
 		NO_ERRORS_SCHEMA
+	],
+	entryComponents: [
+		RankComponent
 	]
 })
-export class BottomBarModule { }
+export class RankModule { }
