@@ -1,27 +1,46 @@
-<GridLayout height="60" verticalAlignment="bottom">
-	<GridLayout columns="*, *, *, *, *" height="60" backgroundColor="#0D0D12">
-		<GridLayout #tabHighlight col="0" backgroundColor="#F8A200"></GridLayout>
-		<GridLayout col="0" (tap)="selectTab(0)">
-			<Image #image1 src="~/assets/i-home.svg" height="23" width="23"></Image>
-			<Label horizontalAlignment="center" letterSpacing="0.2" paddingTop="35">
+<GridLayout height="80" verticalAlignment="bottom">
+	<GridLayout columns="*, *, *, *, *" height="80" backgroundColor="#ffffff" >
+		<GridLayout #tabHighlight col="0" backgroundColor="#ddd"></GridLayout>
+		<GridLayout col="0" (tap)="selectTab(0)" paddingTop="15">
+			<Image #image1 src="~/assets/i-home.png" height="34" width="34" verticalAlignment="top"></Image>
+			<Label horizontalAlignment="center"paddingTop="35">
 				<FormattedString>
-					<Span color="#fff" fontSize="10" fontWeight="normal" text="Scanner"></Span>
+					<Span color="#acacac" fontSize="14" fontWeight="normal" text="Scanner"></Span>
 				</FormattedString>
 			</Label>
 		</GridLayout>
-		<GridLayout col="1" (tap)="selectTab(1)">
-			<Image #image2 src="~/assets/i-search.svg" height="25" width="25"></Image>
+		<GridLayout col="1" (tap)="selectTab(1)" paddingTop="15">
+			<Image #image2 src="~/assets/i-search.png" height="36" width="36" verticalAlignment="top"></Image>
+			<Label horizontalAlignment="center"paddingTop="35">
+				<FormattedString>
+					<Span color="#acacac" fontSize="14" fontWeight="normal" text="Search"></Span>
+				</FormattedString>
+			</Label>
 		</GridLayout>
-		<GridLayout col="2" (tap)="selectTab(2)">
-			<Image #image3 src="~/assets/i-products.svg" height="25" width="25"></Image>
+		<GridLayout col="2" (tap)="selectTab(2)" paddingTop="15">
+			<Image #image3 src="~/assets/i-products.png" height="36" width="36" verticalAlignment="top"></Image>
+			<Label horizontalAlignment="center"paddingTop="35">
+				<FormattedString>
+					<Span color="#acacac" fontSize="14" fontWeight="normal" text="Products"></Span>
+				</FormattedString>
+			</Label>
 		</GridLayout>
-		<GridLayout col="3" (tap)="selectTab(3)">
-			<Image #image4 src="~/assets/i-ranking.svg" height="25" width="25"></Image>
+		<GridLayout col="3" (tap)="selectTab(3)" paddingTop="15">
+			<Image #image4 src="~/assets/i-ranking.png" height="36" width="36" verticalAlignment="top"></Image>
+			<Label horizontalAlignment="center"paddingTop="35">
+				<FormattedString>
+					<Span color="#acacac" fontSize="14" fontWeight="normal" text="Ranking"></Span>
+				</FormattedString>
+			</Label>
 		</GridLayout>
-		<GridLayout col="4" (tap)="selectTab(4)">
-			<Image #image5 src="~/assets/i-login.svg" height="25" width="25"></Image>
+		<GridLayout col="4" (tap)="selectTab(4)" paddingTop="15">
+			<Image #image5 src="~/assets/i-login.png" height="36" width="36" verticalAlignment="top"></Image>
+			<Label horizontalAlignment="center"paddingTop="35">
+				<FormattedString>
+					<Span color="#acacac" fontSize="14" fontWeight="normal" text="Log in"></Span>
+				</FormattedString>
+			</Label>
 		</GridLayout>
 	</GridLayout>
 
 </GridLayout>
- 

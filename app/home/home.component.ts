@@ -1,4 +1,3 @@
-import { ItemEventData } from "ui/list-view"
 import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 import { ios } from "tns-core-modules/application";
@@ -30,6 +29,7 @@ export class HomeComponent implements OnInit {
         this.tabSelected(1);
     }
 
+
     onItemLoading(args: any) {
         if (ios) {
             const cell = args.ios;
@@ -53,11 +53,11 @@ export class HomeComponent implements OnInit {
                 break;
             }
             case 3: {
-                factory = this.componentFactoryResolver.resolveComponentFactory(AuthComponent);
+                factory = this.componentFactoryResolver.resolveComponentFactory(RankComponent);
                 break;
             }
             case 4: {
-                factory = this.componentFactoryResolver.resolveComponentFactory(RankComponent);
+                factory = this.componentFactoryResolver.resolveComponentFactory(AuthComponent);
                 break;
             }
             default: {

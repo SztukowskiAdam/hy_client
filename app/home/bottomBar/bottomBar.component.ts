@@ -3,6 +3,8 @@ import { screen } from "tns-core-modules/platform";
 import { setTimeout } from "tns-core-modules/timer";
 import {AnimationCurve} from "tns-core-modules/ui/enums";
 import {Router} from "@angular/router";
+import {ios} from "tns-core-modules/ui/styling/background";
+declare var UITableViewCellSelectionStyle;
 
 @Component({
 	selector: "BottomBar",
@@ -50,8 +52,6 @@ export class BottomBarComponent implements OnInit {
 		}
 	}
 
-
-
 	getImage(index) {
 		let currentImage;
 		switch (index) {
@@ -90,6 +90,12 @@ export class BottomBarComponent implements OnInit {
 			curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
 			duration: 300
 		})
+	}
+	onItemLoading(args: any) {
+		if (ios) {
+			const cell = args.ios;
+			cell.selectionStyle = UITableViewCellSelectionStyle.UITableViewCellSelectionStyleNone;
+		}
 	}
 
 }
