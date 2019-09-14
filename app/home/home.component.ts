@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef, ViewChildren, ComponentRef} from "@angular/core";
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 import { ios } from "tns-core-modules/application";
 import {SearchComponent} from "~/home/search/search.component";
@@ -16,7 +16,7 @@ declare var UITableViewCellSelectionStyle;
 })
 
 export class HomeComponent implements OnInit {
-    @ViewChild('componentContainer', { read: ViewContainerRef, static: true }) componentContainer;
+    @ViewChild('componentContainer', {read: ViewContainerRef, static: true}) componentContainer;
 
     constructor(
         private page: Page,
@@ -26,8 +26,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.tabSelected(1);
-        console.log( screen.height );
+        this.tabSelected(0);
     }
 
 

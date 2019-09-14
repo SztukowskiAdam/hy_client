@@ -3,6 +3,11 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { ScannerComponent } from "./scanner.component";
 import {BottomBarModule} from "~/home/bottomBar/bottomBar.module";
+import {BarcodeScanner} from "nativescript-barcodescanner";
+
+function createBarcodeScanner() {
+	return new BarcodeScanner();
+}
 
 @NgModule({
 	imports: [
@@ -21,6 +26,9 @@ import {BottomBarModule} from "~/home/bottomBar/bottomBar.module";
 	],
 	entryComponents: [
 		ScannerComponent
+	],
+	providers: [
+		{ provide: BarcodeScanner, useFactory: createBarcodeScanner}
 	]
 })
 export class ScannerModule { }
