@@ -51,51 +51,30 @@ export class ScannerComponent implements OnInit{
 	scanBarcode() {
 		this.requestPermission().then((result) => {
 			this.barcodeScanner.scan({
-				cancelLabel: "Stop scanning",
-				message: "Go scan something",
-				preferFrontCamera: false,
-				showFlipCameraButton: true
+				formats: "QR_CODE, EAN_13",
+				cancelLabelBackgroundColor: "#333333", // iOS only, default '#000000' (black)
+				message: "Locate barcode", // Android only, default is 'Place a barcode inside the viewfinder rectangle to scan it.'
+				showFlipCameraButton: true,   // default false
+				preferFrontCamera: false,     // default false
+				beepOnScan: true,             // Play or Suppress beep on scan (default true)
+				torchOn: false,               // launch with the flashlight on (default false)
+				closeCallback: () => { console.log("Scanner closed")}, // invoked when the scanner was closed (success or abort)
+				resultDisplayDuration: 0,   // Android only, default 1500 (ms), set to 0 to disable echoing the scanned text// Android only, default undefined (sensor-driven orientation), other options: portrait|landscape
+				openSettingsIfPermissionWasPreviouslyDenied: true, // On iOS you can send the user to the settings app if access was previously denied
+				presentInRootViewController: true // iOS-only; If you're sure you're not presenting the (non embedded) scanner in a modal, or are experiencing issues with fi. the navigationbar, set this to 'true' and see if it works better for your app (default false).
 			}).then((result) => {
-				console.log("Scan format: " + result.format);
-				console.log("Scan text:   " + result.text);
-			}, (error) => {
-				console.log("No scan: " + error);
-			});
+					// Note that this Promise is never invoked when a 'continuousScanCallback' function is provided
+					alert({
+						title: "Scan result",
+						message: "Format: " + result.format + ",\nValue: " + result.text,
+						okButtonText: "OK"
+					});
+				}, (errorMessage) => {
+					console.log("No scan. " + errorMessage);
+				}
+			);
 		}, (error) => {
 			console.log("ERROR", error);
 		});
 	}
-
-	/*public getCameraPermission() {
-		Permissions.requestPermission(android.Manifest.permission.CAMERA, "Needed for connectivity status").then(() => {
-			console.log("Permission granted!");
-		}).catch(() => {
-			console.log("Permission is not granted (sadface)");
-		});
-	}
-
-	scan() {
-		console.log("OPEN NOTIFICATION!");
-
-		this.barcodeScanner.scan({
-			formats: "QR_CODE, EAN_13",
-			showFlipCameraButton: true,   // default false
-			preferFrontCamera: false,     // default false
-			showTorchButton: true,        // default false
-			beepOnScan: true,             // Play or Suppress beep on scan (default true)
-			torchOn: false,               // launch with the flashlight on (default false)
-			closeCallback: () => { console.log("Scanner closed")}, // invoked when the scanner was closed (success or abort)
-			openSettingsIfPermissionWasPreviouslyDenied: true, // On iOS you can send the user to the settings app if access was previously denied
-		}).then((result) => {
-				// Note that this Promise is never invoked when a 'continuousScanCallback' function is provided
-				alert({
-					title: "Scan result",
-					message: "Format: " + result.format + ",\nValue: " + result.text,
-					okButtonText: "OK"
-				});
-			}, (errorMessage) => {
-				console.log("No scan. " + errorMessage);
-			}
-		);
-	}*/
 }
